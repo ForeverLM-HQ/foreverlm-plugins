@@ -21,11 +21,11 @@ Build a list of title, DOI and PDF path before touching ForeverLM, and show the 
 
 ## Import
 
-- A PDF on disk: `import_local_pdf_as_paper` with the absolute path and the title as a hint. ForeverLM copies the file into the synced Papers folder, extracts the text, runs metadata, and deduplicates on the DOI it finds in the PDF, so a paper already in the library takes the PDF instead of being added twice.
-- A DOI or URL but no PDF: `import_paper_from_url` with `https://doi.org/<DOI>`. A paper the publisher blocks is still added, marked paywalled, ready for the user to attach the PDF later.
+- A PDF on disk: `import_local_pdf_as_paper` with the absolute path and the title as a hint. ForeverLM copies the file into the synced Papers folder, extracts the text, saves the paper with its PDF and answers at once with its id and a `work_id`; the metadata and cleanup models then read it in the background. It deduplicates on the DOI it finds in the PDF, so a paper already in the library takes the PDF instead of being added twice.
+- A DOI or URL but no PDF: `import_paper_from_url` with `https://doi.org/<DOI>`. It answers once the PDF is downloaded, with the paper's id and a `work_id`, and the models read it in the background as they read a local PDF. A paper the publisher blocks is still added, marked paywalled, ready for the user to attach the PDF later.
 - Neither: skip it and name it in the report.
-- Import one paper at a time. Never delete, move or rename anything in the Zotero or Paperpile folders.
+- Send a batch's imports, local and by URL, then call `list_running_ai_work` until none of their `work_id`s is listed before reporting the batch: the background reading takes a minute or two a paper, a few papers at a time. A paper whose reading failed keeps its PDF and shows the failure; `extract_paper_metadata` retries it. Never delete, move or rename anything in the Zotero or Paperpile folders.
 
 ## Report
 
-After the last batch, call `find_duplicate_papers` and relay what it finds. Give the counts of imported, already present, paywalled and skipped papers, with the skipped titles. The papers now sync through iCloud to the user's other devices and are ready for Read Aloud, search, Chat and review; Zotero or Paperpile stays untouched for citations.
+After the last batch, call `find_duplicate_papers` and relay what it finds. Give the counts of imported, already present, paywalled and skipped papers, with the skipped titles. The papers now sync through iCloud to the user's other devices and are ready for Text to Speech, search, Chat and review; Zotero or Paperpile stays untouched for citations.

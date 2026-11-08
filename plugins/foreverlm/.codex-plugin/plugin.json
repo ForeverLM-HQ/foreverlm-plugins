@@ -1,7 +1,7 @@
 {
   "name": "foreverlm",
-  "version": "1.0.5",
-  "description": "Plan learning journeys, study private sources, and save reviews with ForeverLM.",
+  "version": "1.0.7",
+  "description": "Plan your Schedule, study private sources, and save reviews with ForeverLM.",
   "author": {
     "name": "ForeverLM",
     "url": "https://foreverlm.com"
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "ForeverLM",
     "shortDescription": "Study and review your ForeverLM library.",
-    "longDescription": "Connect ChatGPT to your private ForeverLM knowledge base to plan a learning journey, study scheduled sources, run reviews, and save the resulting transcript back to ForeverLM.",
+    "longDescription": "Connect ChatGPT to your private ForeverLM knowledge base to plan your Schedule, study scheduled sources, run reviews, and save the resulting transcript back to ForeverLM.",
     "developerName": "ForeverLM",
     "category": "Education",
     "capabilities": [
@@ -35,7 +35,7 @@
     "logoDark": "./assets/logo-dark.png",
     "defaultPrompt": [
       "What should I study today?",
-      "Plan this week's learning journey.",
+      "Plan this week's Schedule.",
       "Quiz me on today's sources."
     ]
   },
