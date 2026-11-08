@@ -8,6 +8,7 @@
     "url": "https://foreverlm.com"
   },
   "homepage": "https://foreverlm.com",
+  "privacyPolicyUrl": "https://foreverlm.com/privacy",
   "repository": "https://github.com/ForeverLM-HQ/foreverlm-plugins",
   "license": "MIT",
   "keywords": [
